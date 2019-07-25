@@ -1,3 +1,3 @@
 # __init__.py
 
-from echometrics import *
+from .echometrics import *

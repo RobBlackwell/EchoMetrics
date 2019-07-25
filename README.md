@@ -1,12 +1,23 @@
-===========
 EchoMetrics
 ===========
 
-This python package implements a set of metrics intended to concisely describe the vertical distribution of acoustic backscatter in the water column.  Given an echogram (a 2-D array of acoustic backscatter values indexed by depth on the vertical axis and time and/or location on the horizontal), these metrics will measure various characteristics of the vertical distribution of backscatter (i.e., animal density) ping-by-ping.
+This python package implements a set of metrics intended to concisely
+describe the vertical distribution of acoustic backscatter in the
+water column.  Given an echogram (a 2-D array of acoustic backscatter
+values indexed by depth on the vertical axis and time and/or location
+on the horizontal), these metrics will measure various characteristics
+of the vertical distribution of backscatter (i.e., animal density)
+ping-by-ping.
 
-The original version of this code was written to help analyze a large set of acoustic data collected from an ocean observing system in Monterey Bay, CA.  A more detailed description of the algorithms can be found in:
+The original version of this code was written to help analyze a large
+set of acoustic data collected from an ocean observing system in
+Monterey Bay, CA.  A more detailed description of the algorithms can
+be found in:
  
-Urmy, S.S., Horne, J.K., and Barbee, D.H., 2012.  Measuring the vertical distributional variability of pelagic fauna in Monterey Bay. ICES Journal of Marine Science 69 (2): 184-196.  http://icesjms.oxfordjournals.org/cgi/content/full/fsr205?ijkey=tSU0noNUWz4bj57&keytype=ref
+Urmy, S.S., Horne, J.K., and Barbee, D.H., 2012.  Measuring the
+vertical distributional variability of pelagic fauna in Monterey
+Bay. ICES Journal of Marine Science 69 (2): 184-196.
+http://icesjms.oxfordjournals.org/cgi/content/full/fsr205?ijkey=tSU0noNUWz4bj57&keytype=ref
 
 Installation
 ============
@@ -72,3 +83,13 @@ An example of usage is as follows::
     plt.show()
 
 
+# Python 3 notes
+
+In July 2019, I (<roback28@bas.ac.uk>) attempted to update the code
+base to use Python 3. The following now works:
+
+```
+nosetests tests/test_batch.py
+```
+
+I have note yet had time for more extensive testing.

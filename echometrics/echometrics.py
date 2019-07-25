@@ -8,7 +8,7 @@ try:
     import matplotlib.pyplot as plt
 except ImportError:
     plt = None
-    print "Warning: could not import from matplotlib. Echogram.show() will not work."
+    print("Warning: could not import from matplotlib. Echogram.show() will not work.")
 
 class Echogram(object):
     '''
@@ -66,7 +66,7 @@ class Echogram(object):
         Plot an image of the echogram.
         '''
         if plt is None:
-            print "matplotlib was not imported, canot plot"
+            print("matplotlib was not imported, canot plot")
             return
         plt.imshow(self.data, aspect='auto')
         # make axes ticks be depth and time/location
@@ -151,9 +151,10 @@ def read_flat(file, index, depth, value, sep=',', **kwargs):
     -------
     An echometrics.Echogram object.
     '''
-    data = pandas.read_table(file, sep=sep)
+    # data = pandas.read_table(file, sep=sep)
+    data = pandas.read_csv(file, sep=sep)
     idx = data[index]
-    idx = [string.join([str(x) for x in idx.ix[i]]) for i in range(data.shape[0])]
+    idx = [' '.join([str(x) for x in idx.ix[i]]) for i in range(data.shape[0])]
     data['index'] = idx
     data_pivot = data.pivot(depth, 'index', value)
     return Echogram(np.array(data_pivot), np.array(data_pivot.index).astype('float'),
@@ -424,5 +425,5 @@ def calc_metrics(echo, metric_funcs):
     metrics = np.array([f(echo) for f in metric_funcs])
     metrics = pandas.DataFrame(metrics.T)
     metrics.index = echo.index
-    metrics.columns = [f.func_name for f in metric_funcs]
+    metrics.columns = [f.__name__ for f in metric_funcs]
     return metrics
